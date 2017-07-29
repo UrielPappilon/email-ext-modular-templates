@@ -1,0 +1,67 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define">
+<html>
+  <body>
+    <div class="header">
+      <!-- GENERAL INFO -->
+      <table>
+        <tr class="gray">
+          <td align="right">
+            <j:choose>
+              <j:when test="${build.result=='SUCCESS'}">
+                <img src="${rooturl}static/e59dfe28/images/32x32/blue.gif" />
+              </j:when>
+              <j:when test="${build.result=='FAILURE'}">
+                <img src="${rooturl}static/e59dfe28/images/32x32/red.gif" />
+              </j:when>
+              <j:otherwise>
+                <img src="${rooturl}static/e59dfe28/images/32x32/yellow.gif" />
+              </j:otherwise>
+            </j:choose>
+          </td>
+          <td valign="center">
+            <b style="font-size: 200%;">BUILD ${build.result}</b>
+          </td>
+        </tr>
+        <tr>
+          <td>Build URL</td>
+          <td>
+            <a href="${rooturl}${build.url}">${rooturl}${build.url}</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Project:</td>
+          <td>${project.name}</td>
+        </tr>
+        <tr>
+          <td>Date of build:</td>
+          <td>${it.timestampString}</td>
+        </tr>
+        <tr>
+          <td>Build duration:</td>
+          <td>${build.durationString}</td>
+        </tr>
+        <tr>
+          <td>Build cause:</td>
+          <td>
+            <j:forEach var="cause" items="${build.causes}">${cause.shortDescription} </j:forEach>
+          </td>
+        </tr>
+        <tr>
+          <td>Build description:</td>
+          <td>${build.description}</td>
+        </tr>
+        <tr>
+          <td>Built on:</td>
+          <td>
+            <j:choose>
+              <j:when test="${build.builtOnStr!=''}">${build.builtOnStr}</j:when>
+              <j:otherwise>master</j:otherwise>
+            </j:choose>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+ </html>
+</j:jelly>

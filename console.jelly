@@ -1,0 +1,21 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define">
+<html>
+  <body>
+    <div class="content">
+      <!-- CONSOLE OUTPUT -->
+      <a href="${rooturl}${build.url}/console">
+        <h1>Console Output</h1>
+      </a>
+      <table class="console">
+        <j:forEach var="line" items="${build.getLog(50)}">
+        <tr>
+            <td class="console"><tt>${line}</tt></td>
+        </tr>
+        </j:forEach>
+      </table>
+      <br />
+    </div>
+  </body>
+ </html>
+</j:jelly>

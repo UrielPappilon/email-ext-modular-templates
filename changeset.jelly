@@ -1,0 +1,36 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define">
+<html>
+  <body>
+    <!-- CHANGE SET -->
+    <div class="content">
+      <j:set var="changeSet" value="${build.changeSet}" />
+      <j:if test="${changeSet!=null}">
+        <j:set var="hadChanges" value="false" />
+        <a href="${rooturl}${build.url}/changes">
+          <h1>Changes</h1>
+        </a>
+        <j:forEach var="cs" items="${changeSet.logs}" varStatus="loop">
+          <j:set var="hadChanges" value="true" />
+          <h2>${cs.msgAnnotated}</h2>
+          <p>by <em>${cs.author}</em></p>
+          <table>
+            <j:forEach var="p" items="${cs.affectedFiles}">
+              <tr>
+                <td width="10%">${spc}${p.editType.name}</td>
+                <td>
+                  <tt>${p.path}</tt>
+                </td>
+              </tr>
+            </j:forEach>
+          </table>
+        </j:forEach>
+        <j:if test="${!hadChanges}">
+          <p>No Changes</p>
+        </j:if>
+        <br />
+      </j:if>
+    </div>
+  </body>
+ </html>
+</j:jelly>

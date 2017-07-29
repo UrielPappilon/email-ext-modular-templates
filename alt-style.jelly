@@ -1,0 +1,75 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define">
+<html>
+  <head>
+      <title>${project.name}</title>
+      <style>
+          body table, td, th, p, h1, h2 {
+          margin:0;
+          font:normal normal 100% Georgia, Serif;
+          background-color: #ffffff;
+          }
+          h1, h2 {
+          border-bottom:dotted 1px #999999;
+          padding:5px;
+          margin-top:10px;
+          margin-bottom:10px;
+          color: #000000;
+          font: normal bold 130% Georgia,Serif;
+          background-color:#f0f0f0;
+          }
+          tr.gray {
+          background-color:#f0f0f0;
+          }
+          h2 {
+          padding:5px;
+          margin-top:5px;
+          margin-bottom:5px;
+          font: italic bold 110% Georgia,Serif;
+          }
+          .bg2 {
+          color:black;
+          background-color:#E0E0E0;
+          font-size:110%
+          }
+          th {
+          font-weight: bold;
+          }
+          tr, td, th {
+          padding:2px;
+          }
+          td.test_passed {
+          color:blue;
+          }
+          td.test_failed {
+          color:red;
+          }
+          td.test_skipped {
+          color:grey;
+          }
+          .console {
+          font: normal normal 90% Courier New, monotype;
+          padding:0px;
+          margin:0px;
+          background-color: black;
+          color: green;
+          }
+          div.content, div.header {
+          background: #ffffff;
+          border: dotted
+          1px #666;
+          margin: 2px;
+          content: 2px;
+          padding: 2px;
+          }
+          table.border, th.border, td.border {
+          border: 1px solid black;
+          border-collapse:collapse;
+          }
+          td.right {
+          text-align:right;
+          }
+      </style>
+  </head>
+ </html>
+</j:jelly>

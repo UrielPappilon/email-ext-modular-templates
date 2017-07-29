@@ -1,0 +1,32 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define">
+<html>
+  <body>
+    <!-- HEALTH TEMPLATE -->
+    <div class="content">
+      <j:set var="healthIconSize" value="16x16" />
+      <j:set var="healthReports" value="${project.buildHealthReports}" />
+      <j:if test="${healthReports!=null}">
+        <h1>Health Report</h1>
+        <table>
+          <tr>
+            <th>W</th>
+            <th>Description</th>
+            <th>Score</th>
+          </tr>
+          <j:forEach var="healthReport" items="${healthReports}">
+            <tr>
+              <td>
+                <img src="${rooturl}${healthReport.getIconUrl(healthIconSize)}" />
+              </td>
+              <td>${healthReport.description}</td>
+              <td>${healthReport.score}</td>
+            </tr>
+          </j:forEach>
+        </table>
+        <br />
+      </j:if>
+    </div>
+   </body>
+ </html>
+</j:jelly>

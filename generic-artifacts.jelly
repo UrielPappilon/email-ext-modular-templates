@@ -1,0 +1,21 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define">
+<html>
+  <body>
+    <!-- ARTIFACTS -->
+    <j:set var="artifacts" value="${build.artifacts}" />
+    <j:if test="${artifacts!=null and artifacts.size()&gt;0}">
+      <div class="content">
+        <h1>Build Artifacts</h1>
+        <ul>
+          <j:forEach var="f" items="${artifacts}">
+            <li>
+              <a href="${rooturl}${build.url}artifact/${f}">${f}</a>
+            </li>
+          </j:forEach>
+        </ul>
+      </div>
+    </j:if>
+  </body>
+ </html>
+</j:jelly>
